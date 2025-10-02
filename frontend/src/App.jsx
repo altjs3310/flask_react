@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 import Write from './Write'
 import Detail from './Detail'
 import Edit from './Edit'
+import Recommend from './Recommend'
+import Movie from './Movie'
 
 function App() {
   const [userInfo, setUserInfo] = useState(null)
@@ -29,8 +31,8 @@ function App() {
       userInfo && <h4>{userInfo.nickname}님 어서오십시오</h4>
     }
       <header>
-        <Link to='/'>인덱스</Link>
-        <Link to='/signup'>회원가입</Link>
+        <Link to='/'>인덱스|</Link>
+        <Link to='/signup'>회원가입|</Link>
         {
           userInfo
           ? <Link onClick={() => {
@@ -44,10 +46,12 @@ function App() {
             }).catch(e => {
               console.error(e)
             })
-          }}>로그아웃</Link>
-          : <Link to='/login'>로그인</Link>
+          }}>로그아웃|</Link>
+          : <Link to='/login'>로그인|</Link>
         }
-        <Link to='/write'>글등록</Link>
+        <Link to='/write'>글등록|</Link>
+        <Link to='/recommend'>음식추천|</Link>
+        <Link to='/movie'>영화추천|</Link>
       </header>
 
       <Routes>
@@ -57,6 +61,8 @@ function App() {
         <Route path='/write' element={<Write />} />
         <Route path='/post/:id' element={<Detail/>}/>
         <Route path='/edit/:id' element={<Edit/>}/>
+        <Route path='/recommend' element={<Recommend />} />
+        <Route path='/movie' element={<Movie />} />
       </Routes>
 
 

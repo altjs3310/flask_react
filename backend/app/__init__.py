@@ -24,9 +24,11 @@ def create_app():
   
   from .blueprints.auth import bp as auth_bp
   from .blueprints.post import bp as post_bp
+  from .blueprints.api import bp as api_bp
 
   app.register_blueprint(auth_bp, url_prefix='/auth')
   app.register_blueprint(post_bp, url_prefix='/post')
+  app.register_blueprint(api_bp, url_prefix='/api')
 
   @app.route('/check')
   def check():
